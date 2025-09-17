@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kraken Cyber Security - Pricing</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #8a2be2;
+        --primary-light: #9b4de6;
+        --primary-dark: #6a1cb9;
+        --secondary: #ff5722;
+        --dark: #121212;
+        --dark-light: #1e1e1e;
+        --light: #f5f5f5;
+        --gray: #888;
+        --white: #ffffff;
+        --black: #000000;
+        --transition: all 0.3s ease;
+        --shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        --glow: 0 0 15px rgba(138, 43, 226, 0.5);
+      }
+
+      .light-mode {
+        --dark: #f5f5f5;
+        --dark-light: #e0e0e0;
+        --light: #121212;
+        --gray: #666;
+        --white: #000000;
+        --black: #ffffff;
+        --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--dark);
+        color: var(--light);
+        transition: var(--transition);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: var(--dark-light);
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        font-size: 2rem;
+        color: var(--primary);
+      }
+
+      .logo-text {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      nav a {
+        color: var(--light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: var(--transition);
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* Theme Toggle */
+      .theme-toggle {
+        background: var(--dark-light);
+        border: 2px solid var(--primary);
+        border-radius: 30px;
+        width: 60px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+      }
+
+      .toggle-thumb {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: var(--primary);
+        border-radius: 50%;
+        transition: var(--transition);
+        left: 5px;
+      }
+
+      .theme-toggle.dark .toggle-thumb {
+        left: 33px;
+      }
+
+      .theme-toggle i {
+        font-size: 14px;
+        color: var(--primary);
+      }
+
+      .theme-toggle .fa-moon {
+        margin-left: auto;
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 60px 0;
+        background: linear-gradient(to bottom, var(--dark-light), var(--dark));
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: fadeIn 1s ease;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 30px;
+        color: var(--gray);
+      }
+
+      /* Pricing Section */
+      .pricing {
+        padding: 80px 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        font-size: 2.5rem;
+        color: var(--primary);
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 3px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-bottom: 80px;
+      }
+
+      .pricing-plan {
+        background: var(--dark-light);
+        border-radius: 10px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .pricing-plan::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+      }
+
+      .pricing-plan:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--glow);
+      }
+
+      .plan-name {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .plan-price {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: var(--light);
+      }
+
+      .plan-price span {
+        font-size: 1rem;
+        color: var(--gray);
+      }
+
+      .plan-features {
+        list-style: none;
+        margin-bottom: 30px;
+      }
+
+      .plan-features li {
+        padding: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--gray);
+      }
+
+      .plan-button {
+        display: inline-block;
+        padding: 12px 30px;
+        background: var(--primary);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: var(--transition);
+        border: 2px solid var(--primary);
+      }
+
+      .plan-button:hover {
+        background: transparent;
+        color: var(--primary);
+      }
+
+      /* Special Plan */
+      .special-plan {
+        background: linear-gradient(
+          45deg,
+          var(--primary-dark),
+          var(--primary-light)
+        );
+        border-radius: 15px;
+        padding: 40px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+        max-width: 800px;
+        animation: pulse 2s infinite;
+      }
+
+      .special-plan::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          transparent 70%
+        );
+        transform: rotate(30deg);
+      }
+
+      .special-badge {
+        position: absolute;
+        top: 20px;
+        right: -40px;
+        background: var(--secondary);
+        color: var(--white);
+        padding: 10px 40px;
+        transform: rotate(45deg);
+        font-weight: 700;
+        font-size: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .special-title {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+        color: var(--white);
+      }
+
+      .special-price {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: var(--white);
+      }
+
+      .special-price .original {
+        text-decoration: line-through;
+        font-size: 1.8rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-right: 10px;
+      }
+
+      .special-price .discount {
+        font-size: 2rem;
+        color: #ffeb3b;
+      }
+
+      .special-description {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .special-button {
+        display: inline-block;
+        padding: 15px 40px;
+        background: var(--secondary);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 1.2rem;
+        transition: var(--transition);
+        border: 2px solid var(--secondary);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .special-button:hover {
+        background: transparent;
+        color: var(--white);
+        border-color: var(--white);
+        transform: scale(1.05);
+      }
+
+      /* Language Selector */
+      .language-selector {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: var(--dark-light);
+        border-radius: 50px;
+        padding: 10px;
+        box-shadow: var(--shadow);
+        z-index: 90;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .language-selector select {
+        background: var(--dark);
+        color: var(--light);
+        border: 1px solid var(--primary);
+        border-radius: 20px;
+        padding: 8px 15px;
+        outline: none;
+        cursor: pointer;
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark-light);
+        padding: 40px 0 20px;
+        margin-top: 80px;
+      }
+
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 30px;
+      }
+
+      .footer-column {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer-column h3 {
+        color: var(--primary);
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        color: var(--gray);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-column a:hover {
+        color: var(--primary);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--gray);
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 20px rgba(138, 43, 226, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        nav ul {
+          gap: 15px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .special-plan {
+          padding: 30px 20px;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="logo-text">KRAKEN</div>
+          </div>
+          <nav>
+            <ul>
+              <li><a href="#" data-translate="home">Home</a></li>
+              <li><a href="#" data-translate="services">Services</a></li>
+              <li><a href="#" data-translate="pricing">Pricing</a></li>
+              <li><a href="#" data-translate="about">About</a></li>
+              <li><a href="#" data-translate="contact">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="theme-toggle">
+            <i class="fas fa-sun"></i>
+            <div class="toggle-thumb"></div>
+            <i class="fas fa-moon"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 data-translate="hero-title">Advanced Cyber Security Solutions</h1>
+        <p data-translate="hero-desc">
+          Protect your business from cyber threats with our cutting-edge
+          security services. Choose the plan that fits your needs.
+        </p>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+      <div class="container">
+        <h2 class="section-title" data-translate="pricing-title">
+          Our Pricing Plans
+        </h2>
+        <div class="pricing-grid">
+          <div class="pricing-plan">
+            <h3 class="plan-name" data-translate="basic">Basic</h3>
+            <div class="plan-price">
+              $49<span data-translate="month">/month</span>
+            </div>
+            <ul class="plan-features">
+              <li data-translate="feature1">Vulnerability Assessment</li>
+              <li data-translate="feature2">Basic Firewall Protection</li>
+              <li data-translate="feature3">24/7 Monitoring</li>
+              <li data-translate="feature4">Email Support</li>
+              <li data-translate="feature5">Weekly Reports</li>
+            </ul>
+            <a href="#" class="plan-button" data-translate="get-started"
+              >Get Started</a
+            >
+          </div>
+
+          <div class="pricing-plan">
+            <h3 class="plan-name" data-translate="standard">Standard</h3>
+            <div class="plan-price">
+              $99<span data-translate="month">/month</span>
+            </div>
+            <ul class="plan-features">
+              <li data-translate="feature6">Advanced Threat Detection</li>
+              <li data-translate="feature7">Next-Gen Firewall</li>
+              <li data-translate="feature8">Real-time Monitoring</li>
+              <li data-translate="feature9">Priority Support</li>
+              <li data-translate="feature10">Daily Reports</li>
+              <li data-translate="feature11">Incident Response</li>
+            </ul>
+            <a href="#" class="plan-button" data-translate="get-started"
+              >Get Started</a
+            >
+          </div>
+
+          <div class="pricing-plan">
+            <h3 class="plan-name" data-translate="premium">Premium</h3>
+            <div class="plan-price">
+              $199<span data-translate="month">/month</span>
+            </div>
+            <ul class="plan-features">
+              <li data-translate="feature12">Complete Threat Protection</li>
+              <li data-translate="feature13">AI-Powered Security</li>
+              <li data-translate="feature14">24/7 Advanced Monitoring</li>
+              <li data-translate="feature15">Dedicated Security Expert</li>
+              <li data-translate="feature16">Real-time Reports</li>
+              <li data-translate="feature17">Emergency Response</li>
+              <li data-translate="feature18">Compliance Management</li>
+            </ul>
+            <a href="#" class="plan-button" data-translate="get-started"
+              >Get Started</a
+            >
+          </div>
+        </div>
+
+        <!-- Special Plan -->
+        <div class="special-plan">
+          <div class="special-badge" data-translate="discount">90% OFF</div>
+          <h3 class="special-title" data-translate="bwd-title">
+            BWD-CD Community Plan
+          </h3>
+          <div class="special-price">
+            <span class="original">$199</span>
+            <span class="discount">$19.90</span>
+            <span data-translate="month">/month</span>
+          </div>
+          <p class="special-description" data-translate="bwd-desc">
+            Exclusive offer for BWD Community members - get our Premium plan at
+            90% discount!
+          </p>
+          <ul class="plan-features">
+            <li data-translate="bwd-feature1">All Premium features included</li>
+            <li data-translate="bwd-feature2">
+              Special community support channel
+            </li>
+            <li data-translate="bwd-feature3">
+              Exclusive webinars and training
+            </li>
+            <li data-translate="bwd-feature4">
+              Early access to new security features
+            </li>
+          </ul>
+          <a href="#" class="special-button" data-translate="join-now"
+            >Join Now</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Language Selector -->
+    <div class="language-selector">
+      <select id="language-select">
+        <option value="en">English</option>
+        <option value="yo">Yoruba</option>
+        <option value="ha">Hausa</option>
+        <option value="ig">Igbo</option>
+        <option value="ff">Fulfulde</option>
+        <option value="sw">Swahili</option>
+        <option value="am">Amharic</option>
+      </select>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3 data-translate="footer-kraken">Kraken Security</h3>
+            <p data-translate="footer-desc">
+              Advanced cyber security solutions for businesses of all sizes.
+              Protecting your digital assets with cutting-edge technology.
+            </p>
+          </div>
+          <div class="footer-column">
+            <h3 data-translate="services">Services</h3>
+            <ul>
+              <li>
+                <a href="#" data-translate="service1">Network Security</a>
+              </li>
+              <li><a href="#" data-translate="service2">Cloud Security</a></li>
+              <li>
+                <a href="#" data-translate="service3">Endpoint Protection</a>
+              </li>
+              <li>
+                <a href="#" data-translate="service4">Threat Intelligence</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 data-translate="resources">Resources</h3>
+            <ul>
+              <li><a href="#" data-translate="resource1">Blog</a></li>
+              <li><a href="#" data-translate="resource2">Whitepapers</a></li>
+              <li><a href="#" data-translate="resource3">Webinars</a></li>
+              <li><a href="#" data-translate="resource4">Case Studies</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3 data-translate="contact">Contact</h3>
+            <ul>
+              <li><a href="#" data-translate="contact1">Support</a></li>
+              <li><a href="#" data-translate="contact2">Sales</a></li>
+              <li><a href="#" data-translate="contact3">Emergency</a></li>
+              <li><a href="#" data-translate="contact4">Careers</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>
+            &copy; 2025 Kraken Cyber Security. Designed by
+            <span data-translate="your-name">Your Name</span>. All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Language translations
+      const translations = {
+        en: {
+          // Navigation
+          home: "Home",
+          services: "Services",
+          pricing: "Pricing",
+          about: "About",
+          contact: "Contact",
+
+          // Hero section
+          "hero-title": "Advanced Cyber Security Solutions",
+          "hero-desc":
+            "Protect your business from cyber threats with our cutting-edge security services. Choose the plan that fits your needs.",
+
+          // Pricing section
+          "pricing-title": "Our Pricing Plans",
+          basic: "Basic",
+          standard: "Standard",
+          premium: "Premium",
+          month: "/month",
+          "get-started": "Get Started",
+
+          // Features
+          feature1: "Vulnerability Assessment",
+          feature2: "Basic Firewall Protection",
+          feature3: "24/7 Monitoring",
+          feature4: "Email Support",
+          feature5: "Weekly Reports",
+          feature6: "Advanced Threat Detection",
+          feature7: "Next-Gen Firewall",
+          feature8: "Real-time Monitoring",
+          feature9: "Priority Support",
+          feature10: "Daily Reports",
+          feature11: "Incident Response",
+          feature12: "Complete Threat Protection",
+          feature13: "AI-Powered Security",
+          feature14: "24/7 Advanced Monitoring",
+          feature15: "Dedicated Security Expert",
+          feature16: "Real-time Reports",
+          feature17: "Emergency Response",
+          feature18: "Compliance Management",
+
+          // BWD Plan
+          discount: "90% OFF",
+          "bwd-title": "BWD-CD Community Plan",
+          "bwd-desc":
+            "Exclusive offer for BWD Community members - get our Premium plan at 90% discount!",
+          "bwd-feature1": "All Premium features included",
+          "bwd-feature2": "Special community support channel",
+          "bwd-feature3": "Exclusive webinars and training",
+          "bwd-feature4": "Early access to new security features",
+          "join-now": "Join Now",
+
+          // Footer
+          "footer-kraken": "Kraken Security",
+          "footer-desc":
+            "Advanced cyber security solutions for businesses of all sizes. Protecting your digital assets with cutting-edge technology.",
+          resources: "Resources",
+          resource1: "Blog",
+          resource2: "Whitepapers",
+          resource3: "Webinars",
+          resource4: "Case Studies",
+          service1: "Network Security",
+          service2: "Cloud Security",
+          service3: "Endpoint Protection",
+          service4: "Threat Intelligence",
+          contact1: "Support",
+          contact2: "Sales",
+          contact3: "Emergency",
+          contact4: "Careers",
+          "your-name": "Josh_d_developer",
+        },
+        yo: {
+          // Navigation
+          home: "Ilé",
+          services: "Àwọn iṣẹ́",
+          pricing: "Àwọn idiyele",
+          about: "Nipa",
+          contact: "Kan si",
+
+          // Hero section
+          "hero-title": "Àwọn ìbéèrè Ààbò Cyber Advanced",
+          "hero-desc":
+            "Dààbò iṣẹ́ rẹ látọ̀dọ̀ àwọn ẹ̀rù cyber pẹ̀lú àwọn iṣẹ́ ààbò wa títẹ̀. Yàn ìlànà tó bá àní rẹ mu.",
+
+          // Pricing section
+          "pricing-title": "Àwọn Ìlànà Idìyele Wa",
+          basic: "Àkọ́kọ́",
+          standard: "Ìdá",
+          premium: "Gíga",
+          month: "/osù",
+          "get-started": "Bẹ̀rẹ̀",
+
+          // Features
+          feature1: "Ìwádìí Ẹ̀dá",
+          feature2: "Ààbò Firewall Àkọ́kọ́",
+          feature3: "Àtẹ̀lé 24/7",
+          feature4: "Ìrànlọ́wọ́ Ímèèlì",
+          feature5: "Ìròyìn Ọ̀sẹ̀",
+          feature6: "Ìṣàkóso Ẹ̀rù Advanced",
+          feature7: "Firewall Ìrìn-àjò",
+          feature8: "Àtẹ̀lé Ìgbà Gangan",
+          feature9: "Ìrànlọ́wọ́ Àkànkàn",
+          feature10: "Ìròyìn Ojoojúmọ́",
+          feature11: "Ìdáhun Ìṣẹ̀lẹ̀",
+          feature12: "Ààbò Ẹ̀rù Kún-un",
+          feature13: "Ààbò AI",
+          feature14: "Àtẹ̀lé Advanced 24/7",
+          feature15: "Ọjọ́gbọ́n Ààbò Tí ń ṣiṣẹ́ Fún Ẹni",
+          feature16: "Ìròyìn Ìgbà Gangan",
+          feature17: "Ìdáhun Ìjálà",
+          feature18: "Ìṣàkóso Ìfọwọ́sowọ́pọ̀",
+
+          // BWD Plan
+          discount: "90% Silẹ̀",
+          "bwd-title": "Ìlànà Agbèjọ́rò BWD-CD",
+          "bwd-desc":
+            "Ìfúnni Àṣìkò fún àwọn mẹ́mbà Agbèjọ́rò BWD - gba ìlànà Premium wa ní ẹ̀dín 90%!",
+          "bwd-feature1": "Gbogbo àwọn ẹ̀yà Premium wà níbẹ̀",
+          "bwd-feature2": "Ìkàǹǹ àwọn agbèjọ́rò ìrànlọ́wọ́ pàtàkì",
+          "bwd-feature3": "Ìkẹ́kọ̀ọ́ àti ẹ̀kọ́ àṣìkò",
+          "bwd-feature4": "Ìwọ̀wé tẹ́lẹ̀ sí àwọn ẹ̀yà ààbò tuntun",
+          "join-now": "Darapọ̀ Nisinsinyi",
+
+          // Footer
+          "footer-kraken": "Ààbò Kraken",
+          "footer-desc":
+            "Àwọn ìbéèrè ààbò cyber fún àwọn iṣẹ́ láti gbogbo nǹkan. Dídààbò àwọn nǹkan rẹ díjítà pẹ̀lú tẹ́knọ́lọ́jì títẹ̀.",
+          resources: "Àwọn ohun ìní",
+          resource1: "Búlọ́ọ̀gù",
+          resource2: "Àwọn ìwé aláwọ̀ funfun",
+          resource3: "Àwọn wẹ́bínà",
+          resource4: "Àwọn ìwádìí àpẹẹrẹ",
+          service1: "Ààbò Nẹ́tíwọ́ọ̀kì",
+          service2: "Ààbò Cloud",
+          service3: "Ààbò Endpoint",
+          service4: "Òye Ẹ̀rù",
+          contact1: "Ìrànlọ́wọ́",
+          contact2: "Títà",
+          contact3: "Ìjálà",
+          contact4: "Àwọn iṣẹ́",
+          "your-name": "Josh_d_developer",
+        },
+        ha: {
+          // Navigation
+          home: "Gida",
+          services: "Ayyuka",
+          pricing: "Farashi",
+          about: "Game da",
+          contact: "Tuntuɓi",
+
+          // Hero section
+          "hero-title": "Mafita na Tsaro Cyber na Zamani",
+          "hero-desc":
+            "Kāre kasuwancin ku daga barazanar cyber tare da sabbin ayyukan tsaro. Zaɓi tsarin da ya dace da bukatun ku.",
+
+          // Pricing section
+          "pricing-title": "Tsare-tsarenmu na Farashi",
+          basic: "Na Asali",
+          standard: "Mizani",
+          premium: "Premium",
+          month: "/wata",
+          "get-started": "Fara",
+
+          // Features
+          feature1: "Kima na Rashin Tsaro",
+          feature2: "Kariyar Firewall Na Asali",
+          feature3: "Sauro 24/7",
+          feature4: "Tallafin Imel",
+          feature5: "Rahoton Makonni",
+          feature6: "Gano Barazana Mai Zurfi",
+          feature7: "Firewall na Zamani",
+          feature8: "Sauro na Lokaci Gaskiya",
+          feature9: "Tallafi Na Gaba",
+          feature10: "Rahoton Yau da Kullum",
+          feature11: "Amsa Lamari",
+          feature12: "Cikakkiyar Kariyar Barazana",
+          feature13: "Tsaro na AI",
+          feature14: "Sauro Mai Zurfi 24/7",
+          feature15: "Kwararren Tsaro Na Keɓance",
+          feature16: "Rahoton Lokaci Gaskiya",
+          feature17: "Amsa Gaggawa",
+          feature18: "Gudanar Da Yardar Allah",
+
+          // BWD Plan
+          discount: "90% Rangura",
+          "bwd-title": "Tsarin Al'ummun BWD-CD",
+          "bwd-desc":
+            "Keɓantaccen tayin ga membobin Al'ummun BWD - sami tsarinmu na Premium da rangwame 90%!",
+          "bwd-feature1": "Duk fasalin Premium sun haɗa",
+          "bwd-feature2": "Tashar tallafin al'umma ta musamman",
+          "bwd-feature3": "Keɓantaccen bita da horarwa",
+          "bwd-feature4": "Samun dama da wuri ga sababbin fasalin tsaro",
+          "join-now": "Shiga Yanzu",
+
+          // Footer
+          "footer-kraken": "Tsaron Kraken",
+          "footer-desc":
+            "Advanced cyber security solutions for businesses of all sizes. Protecting your digital assets with cutting-edge technology.",
+          resources: "Albarkatun",
+          resource1: "Blog",
+          resource2: "Takardun Fari",
+          resource3: "Yanar Gizo",
+          resource4: "Nazarin Lamarin",
+          service1: "Tsaron Cibiyar Sadarwa",
+          service2: "Tsaron Girgije",
+          service3: "Kariyar Ƙarshe",
+          service4: "Hankalin Barazana",
+          contact1: "Tallafi",
+          contact2: "Tallace-tallace",
+          contact3: "Gaggawa",
+          contact4: "Ayyuka",
+          "your-name": "Josh_d_developer",
+        },
+        ig: {
+          // Navigation
+          home: "Ụlọ",
+          services: "Ọrụ",
+          pricing: "Ọnụahịa",
+          about: "Banyere",
+          contact: "Kpọtụrụ",
+
+          // Hero section
+          "hero-title": "Ngwọta Nchedo Cyber Dị Elu",
+          "hero-desc":
+            "Chebe azụmahịa gị pụọ na egwu cyber site na ọrụ nchekwa anyị dị elu. Họrọ atụmatụ dabara gị mkpa.",
+
+          // Pricing section
+          "pricing-title": "Atụmatụ Ọnụahịa Anyị",
+          basic: "Nke bụ isi",
+          standard: "Ọkọlọtọ",
+          premium: "Adịchaghị",
+          month: "/ọnwa",
+          "get-started": "Bido",
+
+          // Features
+          feature1: "Nyocha Adịghị Ike",
+          feature2: "Nchedo Firewall Nke bụ isi",
+          feature3: "Nlekọta 24/7",
+          feature4: "Nkwado Email",
+          feature5: "Akụkọ Kwa Izu",
+          feature6: "Nchọpụta Egwu Dị Elu",
+          feature7: "Firewall Ọgbọ Ọhụrụ",
+          feature8: "Nlekọta Oge Eziokwu",
+          feature9: "Nkwado Mbụ",
+          feature10: "Akụkọ Kwa Ụbọchị",
+          feature11: "Nzaghachi Ihe Omume",
+          feature12: "Nchedo Egwu Zuru Ezu",
+          feature13: "Nchedo AI kwadoro",
+          feature14: "Nlekọta Dị Elu 24/7",
+          feature15: "Ọkachamara Nchedo Rara Onwe Ya Nye",
+          feature16: "Akụkọ Oge Eziokwu",
+          feature17: "Nzaghachi Mberede",
+          feature18: "Njikwa Nkwenye",
+
+          // BWD Plan
+          discount: "90% Mbelata",
+          "bwd-title": "Atụmatụ Obodo BWD-CD",
+          "bwd-desc":
+            "Ohere pụrụ iche maka ndị otu BWD Community - nweta atụmatụ Premium anyị na mbelata 90%!",
+          "bwd-feature1": "Atụmatụ Premium niile gụnyere",
+          "bwd-feature2": "Ọwa nkwado obodo pụrụ iche",
+          "bwd-feature3": "Webinars na ọzụzụ pụrụ iche",
+          "bwd-feature4": "Nweta ngwa ngwa na atụmatụ nchekwa ọhụrụ",
+          "join-now": "Banye Ugbu a",
+
+          // Footer
+          "footer-kraken": "Nchedo Kraken",
+          "footer-desc":
+            "Ngwọta nchekwa cyber dị elu maka azụmahịa nke nha niile. Na-echebe akụ dijitalụ gị site na teknụzụ dị elu.",
+          resources: "Akụrụngwa",
+          resource1: "Blog",
+          resource2: "Akwụkwọ ọcha",
+          resource3: "Webinars",
+          resource4: "Nnyocha ikpe",
+          service1: "Nchedo Netwọk",
+          service2: "Nchedo Igwe ojii",
+          service3: "Nchedo Ngwụcha",
+          service4: "Ọgụgụ isi egwu",
+          contact1: "Nkwado",
+          contact2: "Ahịa",
+          contact3: "Mberede",
+          contact4: "Ọrụ",
+          "your-name": "Josh_d_developer",
+        },
+        ff: {
+          // Navigation
+          home: "Wuro",
+          services: "Kuugal",
+          pricing: "Ceede",
+          about: "Ko faati",
+          contact: "Jaɓɓorgo",
+
+          // Hero section
+          "hero-title": "Kuugal Kisal Cyber ngal ɓamtaare",
+          "hero-desc":
+            "Reenude njulaagu maada e kulhuli cyber e kuugal kisal men ngal ɓamtaare. Suɓo peeje ɗe poti e haajuuji maada.",
+
+          // Pricing section
+          "pricing-title": "Peeje Ceede Amen",
+          basic: "Lesles",
+          standard: "Standard",
+          premium: "Premium",
+          month: "/lewru",
+          "get-started": "Fuɗɗo",
+
+          // Features
+          feature1: "Ƴeewndo Kulhuli",
+          feature2: "Reenugo Firewall Lesles",
+          feature3: "Ƴeewndo 24/7",
+          feature4: "Ballal Email",
+          feature5: "Ciimtol Yontere",
+          feature6: "Ƴeewndo Kulhuli Toowɗi",
+          feature7: "Firewall Kesum",
+          feature8: "Ƴeewndo Wakkati Goonga",
+          feature9: "Ballal Toowngal",
+          feature10: "Ciimtol Nyalawma",
+          feature11: "Jaabawol Kulhuli",
+          feature12: "Reenugo Kulhuli Timmuɗi",
+          feature13: "Kisal AI",
+          feature14: "Ƴeewndo Toowngo 24/7",
+          feature15: "Kwararre Kisal Keertiiɗo",
+          feature16: "Ciimtol Wakkati Goonga",
+          feature17: "Jaabawol Hattin",
+          feature18: "Jaɓɓorgo Dental",
+
+          // BWD Plan
+          discount: "90% Ƴeewndo",
+          "bwd-title": "Peeje Renndo BWD-CD",
+          "bwd-desc":
+            "Njoɓdi keertiiɗi ngam terɗe BWD Community - heɓu peeje Premium men e 90% ƴeewndo!",
+          "bwd-feature1": "Duk sifaaji Premium ina heen",
+          "bwd-feature2": "Kanal ballal renndo keertiiɗo",
+          "bwd-feature3": "Webinars e janngirɗe keertiiɗe",
+          "bwd-feature4": "Heɓugo wakkati arande to sifaaji kisal kesi",
+          "join-now": "Naatude Jooni",
+
+          // Footer
+          "footer-kraken": "Kisal Kraken",
+          "footer-desc":
+            "Kuugal kisal cyber ngal ɓamtaare ngam njulaaguuji kala mawneeki. Reenude jawdi maada digital e karallaagal ɓamtaare.",
+          resources: "Kuuje",
+          resource1: "Blog",
+          resource2: "Deftere Daneeje",
+          resource3: "Webinars",
+          resource4: "Janngirɗe Kulhuli",
+          service1: "Kisal Network",
+          service2: "Kisal Cloud",
+          service3: "Kisal Endpoint",
+          service4: "Ƴeewndo Kulhuli",
+          contact1: "Ballal",
+          contact2: "Jaaynde",
+          contact3: "Hattin",
+          contact4: "Kuugal",
+          "your-name": "Josh_d_developer",
+        },
+        sw: {
+          // Navigation
+          home: "Nyumbani",
+          services: "Huduma",
+          pricing: "Bei",
+          about: "Kuhusu",
+          contact: "Wasiliana",
+
+          // Hero section
+          "hero-title": "Suluhisho za Juu za Usalama wa Mtandaoni",
+          "hero-desc":
+            "Linda biashara yako dhidi ya vitisho vya mtandaoni kwa huduma zetu za kisasa za usalama. Chagua mpango unaofaa mahitaji yako.",
+
+          // Pricing section
+          "pricing-title": "Mipango Yetu ya Bei",
+          basic: "Msingi",
+          standard: "Kawaida",
+          premium: "Premium",
+          month: "/mwezi",
+          "get-started": "Anza Sasa",
+
+          // Features
+          feature1: "Tathmini ya Udhaifu",
+          feature2: "Ulinzi wa Msingi wa Firewall",
+          feature3: "Ufuatiliaji 24/7",
+          feature4: "Msaada wa Barua pepe",
+          feature5: "Ripoti za Wiki",
+          feature6: "Utambuzi wa Vitisho vya Juu",
+          feature7: "Firewall ya Kizazi Kipya",
+          feature8: "Ufuatiliaji wa Wakati Halisi",
+          feature9: "Msaada wa Kipaumbele",
+          feature10: "Ripoti za Kila Siku",
+          feature11: "Majibu ya Matukio",
+          feature12: "Ulinzi Kamili wa Vitisho",
+          feature13: "Usalama Unaotumia AI",
+          feature14: "Ufuatiliaji wa Juu 24/7",
+          feature15: "Mtaalamu wa Usalama Aliyejitolea",
+          feature16: "Ripoti za Wakati Halisi",
+          feature17: "Majibu ya Dharura",
+          feature18: "Usimamizi wa Uzingatiaji",
+
+          // BWD Plan
+          discount: "Punguzo la 90%",
+          "bwd-title": "Mpango wa Jumuiya ya BWD-CD",
+          "bwd-desc":
+            "Ofa ya kipekee kwa wanachama wa Jumuiya ya BWD - pata mpango wetu wa Premium kwa punguzo la 90%!",
+          "bwd-feature1": "Vipengele vyote vya Premium vimejumuishwa",
+          "bwd-feature2": "Kituo maalum cha usaidizi wa jamii",
+          "bwd-feature3": "Webinars na mafunzo maalum",
+          "bwd-feature4": "Ufikiaji wa mapema wa vipengele vipya vya usalama",
+          "join-now": "Jiunge Sasa",
+
+          // Footer
+          "footer-kraken": "Usalama wa Kraken",
+          "footer-desc":
+            "Suluhisho za juu za usalama wa mtandaoni kwa biashara za ukubwa wote. Kulinda mali zako za kidijitali kwa teknolojia ya kisasa.",
+          resources: "Rasilimali",
+          resource1: "Blog",
+          resource2: "Nyaraka Nyeupe",
+          resource3: "Webinars",
+          resource4: "Uchunguzi Kifani",
+          service1: "Usalama wa Mtandao",
+          service2: "Usalama wa Wingu",
+          service3: "Ulinzi wa Sehemu ya Mwisho",
+          service4: "Ujasusi wa Vitisho",
+          contact1: "Msaada",
+          contact2: "Mauzo",
+          contact3: "Dharura",
+          contact4: "Kazi",
+          "your-name": "Josh_d_developer",
+        },
+        am: {
+          // Navigation
+          home: "መነሻ",
+          services: "አገልግሎቶች",
+          pricing: "ዋጋ",
+          about: "ስለ",
+          contact: "እውቂያ",
+
+          // Hero section
+          "hero-title": "የላቀ የሳይበር ደህንነት መፍትሄዎች",
+          "hero-desc":
+            "ንግድዎን ከሳይበር ስጋቶች ይጠብቁ በእኛ ዘመናዊ የደህንነት አገልግሎቶች። ፍላጎቶችዎን የሚያሟላ እቅድ ይምረጡ።",
+
+          // Pricing section
+          "pricing-title": "የዋጋ እቅዶቻችን",
+          basic: "መሰረታዊ",
+          standard: "መደበኛ",
+          premium: "ፕሪሚየም",
+          month: "/ወር",
+          "get-started": "ይጀምሩ",
+
+          // Features
+          feature1: "የተጋላጭነት ምዘና",
+          feature2: "መሰረታዊ ፋየርዎል ጥበቃ",
+          feature3: "24/7 ክትትል",
+          feature4: "የኢሜል ድጋፍ",
+          feature5: "ሳምንታዊ ሪፖርቶች",
+          feature6: "የላቀ ስጋት መለየት",
+          feature7: "ቀጣይ-ትውልድ ፋየርዎል",
+          feature8: "ቅጽበታዊ ክትትል",
+          feature9: "ቅድሚያ የሚሰጠው ድጋፍ",
+          feature10: "ዕለታዊ ሪፖርቶች",
+          feature11: "የክስተት ምላሽ",
+          feature12: "ሙሉ ስጋት ጥበቃ",
+          feature13: "በ AI የተጎላበተ ደህንነት",
+          feature14: "24/7 የላቀ ክትትል",
+          feature15: "የተሰጠ የደህንነት ባለሙያ",
+          feature16: "ቅጽበታዊ ሪፖርቶች",
+          feature17: "ድንገተኛ ምላሽ",
+          feature18: "የተገዢነት አስተዳደር",
+
+          // BWD Plan
+          discount: "90% ቅናሽ",
+          "bwd-title": "BWD-CD የማህበረሰብ እቅድ",
+          "bwd-desc": "ለ BWD ማህበረሰብ አባላት ልዩ ቅናሽ - የፕሪሚየም እቅዳችንን በ 90% ቅናሽ ያግኙ!",
+          "bwd-feature1": "ሁሉም የፕሪሚየም ባህሪያት ተካትተዋል",
+          "bwd-feature2": "ልዩ የማህበረሰብ ድጋፍ ቻናል",
+          "bwd-feature3": "ልዩ የዌቢናሮች እና ስልጠናዎች",
+          "bwd-feature4": "ለአዳዲስ የደህንነት ባህሪያት ቀድሞ መድረስ",
+          "join-now": "አሁን ይቀላቀሉ",
+
+          // Footer
+          "footer-kraken": "ክራከን ደህንነት",
+          "footer-desc":
+            "ለሁሉም መጠኖች ንግዶች የላቀ የሳይበር ደህንነት መፍትሄዎች። ዲጂታል ንብረቶችዎን በዘመናዊ ቴክኖሎጂ መጠበቅ።",
+          resources: "ሀብቶች",
+          resource1: "ብሎግ",
+          resource2: "ነጭ ወረቀቶች",
+          resource3: "ዌቢናሮች",
+          resource4: "የጉዳይ ጥናቶች",
+          service1: "የአውታረ መረብ ደህንነት",
+          service2: "የደመና ደህንነት",
+          service3: "የመጨረሻ ነጥብ ጥበቃ",
+          service4: "የስጋት መረጃ",
+          contact1: "ድጋፍ",
+          contact2: "ሽያጭ",
+          contact3: "ድንገተኛ",
+          contact4: "ስራዎች",
+          "your-name": "Josh_d_developer",
+        },
+      };
+
+      // Theme Toggle Functionality
+      const themeToggle = document.querySelector(".theme-toggle");
+      const body = document.body;
+
+      themeToggle.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+        themeToggle.classList.toggle("dark");
+
+        // Save theme preference to localStorage
+        const isLightMode = body.classList.contains("light-mode");
+        localStorage.setItem("lightMode", isLightMode);
+      });
+
+      // Check for saved theme preference
+      if (localStorage.getItem("lightMode") === "true") {
+        body.classList.add("light-mode");
+        themeToggle.classList.add("dark");
+      }
+
+      // Language Switching Functionality
+      const languageSelect = document.getElementById("language-select");
+
+      // Set default language
+      let currentLang = "en";
+
+      // Function to change language
+      function changeLanguage(lang) {
+        // Update all elements with data-translate attribute
+        document.querySelectorAll("[data-translate]").forEach((element) => {
+          const key = element.getAttribute("data-translate");
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+
+        // Update current language
+        currentLang = lang;
+        localStorage.setItem("language", lang);
+      }
+
+      // Event listener for language selection
+      languageSelect.addEventListener("change", (e) => {
+        changeLanguage(e.target.value);
+      });
+
+      // Check for saved language preference
+      const savedLanguage = localStorage.getItem("language");
+      if (savedLanguage && translations[savedLanguage]) {
+        languageSelect.value = savedLanguage;
+        changeLanguage(savedLanguage);
+      }
+
+      // Add animations to pricing cards when they come into view
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1,
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = "fadeIn 1s ease forwards";
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      document
+        .querySelectorAll(".pricing-plan, .special-plan")
+        .forEach((item) => {
+          item.style.opacity = "0";
+          observer.observe(item);
+        });
+    </script>
+  </body>
+</html>
