@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You - Kraken Cyber Security</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #8a2be2;
+        --primary-light: #9b4de6;
+        --primary-dark: #6a1cb9;
+        --secondary: #ff5722;
+        --dark: #121212;
+        --dark-light: #1e1e1e;
+        --light: #f5f5f5;
+        --gray: #888;
+        --white: #ffffff;
+        --black: #000000;
+        --transition: all 0.3s ease;
+        --shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        --glow: 0 0 15px rgba(138, 43, 226, 0.5);
+      }
+
+      .light-mode {
+        --dark: #f5f5f5;
+        --dark-light: #e0e0e0;
+        --light: #121212;
+        --gray: #666;
+        --white: #000000;
+        --black: #ffffff;
+        --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--dark);
+        color: var(--light);
+        transition: var(--transition);
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: var(--dark-light);
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--primary);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      .logo-text {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 24px;
+        background: var(--primary);
+        color: var(--white);
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: var(--transition);
+        border: 2px solid var(--primary);
+      }
+
+      .back-button:hover {
+        background: transparent;
+        color: var(--primary);
+      }
+
+      /* Theme Toggle */
+      .theme-toggle {
+        background: var(--dark-light);
+        border: 2px solid var(--primary);
+        border-radius: 30px;
+        width: 60px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        padding: 0 5px;
+      }
+
+      .toggle-thumb {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: var(--primary);
+        border-radius: 50%;
+        transition: var(--transition);
+        left: 5px;
+      }
+
+      .theme-toggle.dark .toggle-thumb {
+        left: 33px;
+      }
+
+      .theme-toggle i {
+        font-size: 14px;
+        color: var(--primary);
+      }
+
+      .theme-toggle .fa-moon {
+        margin-left: auto;
+      }
+
+      /* Main Content */
+      .main-content {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 60px 0;
+      }
+
+      .thank-you-container {
+        text-align: center;
+        max-width: 600px;
+        padding: 60px 40px;
+        background: var(--dark-light);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .thank-you-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--primary), var(--secondary));
+      }
+
+      .success-icon {
+        width: 100px;
+        height: 100px;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 30px;
+        animation: pulse 2s infinite;
+      }
+
+      .success-icon i {
+        font-size: 50px;
+        color: var(--white);
+      }
+
+      .thank-you-title {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: fadeIn 1s ease;
+      }
+
+      .thank-you-message {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+        color: var(--gray);
+        line-height: 1.8;
+      }
+
+      .next-steps {
+        background: rgba(138, 43, 226, 0.1);
+        border-radius: 15px;
+        padding: 30px;
+        margin: 30px 0;
+        border: 1px solid rgba(138, 43, 226, 0.3);
+      }
+
+      .next-steps h3 {
+        color: var(--primary);
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+      }
+
+      .next-steps ul {
+        list-style: none;
+        text-align: left;
+      }
+
+      .next-steps li {
+        padding: 10px 0;
+        color: var(--light);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .next-steps li i {
+        color: var(--primary);
+        font-size: 1.2rem;
+        width: 20px;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 15px 30px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: var(--transition);
+        border: 2px solid;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: var(--white);
+        border-color: var(--primary);
+      }
+
+      .btn-primary:hover {
+        background: transparent;
+        color: var(--primary);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--secondary);
+        border-color: var(--secondary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--secondary);
+        color: var(--white);
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 20px rgba(138, 43, 226, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .thank-you-container {
+          padding: 40px 20px;
+          margin: 20px;
+        }
+
+        .thank-you-title {
+          font-size: 2.2rem;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .btn {
+          width: 100%;
+          max-width: 300px;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div><img src="123.png" alt="" class="logo-icon" /></div>
+            <div class="logo-text">KRAKEN</div>
+          </div>
+          <a href="index.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+          </a>
+          <div class="theme-toggle">
+            <i class="fas fa-sun"></i>
+            <div class="toggle-thumb"></div>
+            <i class="fas fa-moon"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="thank-you-container">
+          <div class="success-icon">
+            <i class="fas fa-check"></i>
+          </div>
+
+          <h1 class="thank-you-title">Thank You!</h1>
+
+          <p class="thank-you-message">
+            We appreciate your interest in our cyber security solutions. Your
+            request has been received and our team will contact you shortly to
+            discuss your security needs and finalize your plan.
+          </p>
+
+          <div class="next-steps">
+            <h3>What happens next?</h3>
+            <ul>
+              <li>
+                <i class="fas fa-phone"></i>
+                Our security expert will call you within 24 hours
+              </li>
+              <li>
+                <i class="fas fa-clipboard-list"></i>
+                We'll conduct a free security assessment of your current setup
+              </li>
+              <li>
+                <i class="fas fa-cog"></i>
+                Custom configuration of your chosen security plan
+              </li>
+              <li>
+                <i class="fas fa-shield-alt"></i>
+                Full deployment and 24/7 monitoring activation
+              </li>
+            </ul>
+          </div>
+
+          <div class="action-buttons">
+            <a href="index.html" class="btn btn-primary">
+              <i class="fas fa-home"></i>
+              Return Home
+            </a>
+            <a href="mailto:joshmech851@gmail.com" class="btn btn-secondary">
+              <i class="fas fa-envelope"></i>
+              Contact Support
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      // Theme Toggle Functionality
+      const themeToggle = document.querySelector(".theme-toggle");
+      const body = document.body;
+
+      themeToggle.addEventListener("click", () => {
+        body.classList.toggle("light-mode");
+        themeToggle.classList.toggle("dark");
+
+        // Save theme preference to localStorage
+        const isLightMode = body.classList.contains("light-mode");
+        localStorage.setItem("lightMode", isLightMode);
+      });
+
+      // Check for saved theme preference
+      if (localStorage.getItem("lightMode") === "true") {
+        body.classList.add("light-mode");
+        themeToggle.classList.add("dark");
+      }
+
+      // Add fade-in animation to the container
+      document.addEventListener("DOMContentLoaded", () => {
+        const container = document.querySelector(".thank-you-container");
+        container.style.animation = "fadeIn 1s ease forwards";
+      });
+    </script>
+  </body>
+</html>
